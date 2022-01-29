@@ -7,7 +7,6 @@ using IWshRuntimeLibrary;
 using Shell32;
 
 using Path = System.IO.Path;
-using System.IO;
 
 
 namespace Abraham.Windows.Shell
@@ -35,33 +34,10 @@ namespace Abraham.Windows.Shell
     /// </remarks>
     public class AutostartFolder
     {
-        #region ------------- Properties ----------------------------------------------------------
-        public string ProductName { get; set; }
-        public string Description { get; set; }
-        #endregion
-
-
-
-        #region ------------- Init ----------------------------------------------------------------
-        public AutostartFolder()
-        {
-            ProductName = "MyProduct";
-            Description = "Launch My Application";
-        }
-
-        public AutostartFolder(string productName, string description)
-        {
-            ProductName = productName;
-            Description = description;
-        }
-        #endregion
-
-
-
         #region ------------- Methods -------------------------------------------------------------
         
         /// <summary>
-        /// Create a new shortcut in windows autostart folder, pointing to your program.
+        /// Creates a new shortcut in windows autostart folder, pointing to your program.
         /// The next time windows starts it will execute your program.
         /// </summary>
         /// 
@@ -73,21 +49,24 @@ namespace Abraham.Windows.Shell
         /// <param name="appIconLocation">
         /// Optional path to you application icon, i.e. C:\Program Files\MyCompany\MyApplication.ico
         /// </param>
-        public void CreateShortcut(string pathToMyExe = null, string appIconLocation = null)
+        public static void AddShortcut(string pathToMyExe = null, 
+                                          string appIconLocation = null, 
+                                          string productName = "MyProduct", 
+                                          string description = "Launch My Application")
         {
             WshShellClass wshShell = new WshShellClass();
             IWshRuntimeLibrary.IWshShortcut shortcut;
             string startUpFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
 
             // Create the shortcut
-            string Dateiname = startUpFolderPath + "\\" + ProductName + ".lnk";
+            string Dateiname = startUpFolderPath + "\\" + productName + ".lnk";
             shortcut = (IWshRuntimeLibrary.IWshShortcut)wshShell.CreateShortcut(Dateiname);
 
             if (pathToMyExe == null)
                 pathToMyExe = GetTargetExeName();
             shortcut.TargetPath = pathToMyExe;
             shortcut.WorkingDirectory = Path.GetDirectoryName(shortcut.TargetPath);
-            shortcut.Description = Description;
+            shortcut.Description = description;
 
             if (appIconLocation != null)
                 shortcut.IconLocation = appIconLocation;
@@ -102,7 +81,7 @@ namespace Abraham.Windows.Shell
         /// The full path to your program, i.e. C:\Program Files\MyCompany\MyApplication.exe
         /// If you pass null it will take the filename of the current process.
         /// </param>
-        public void DeleteShortcut(string pathToMyExe = null)
+        public static void RemoveShortcut(string pathToMyExe = null)
         {
             if (pathToMyExe == null)
                 pathToMyExe = GetTargetExeName();
@@ -127,10 +106,10 @@ namespace Abraham.Windows.Shell
         /// Get the target filename by the name of the shortcut in windows autostart folder.
         /// </summary>
         /// 
-        /// <param name="pathToMyExe">
+        /// <param name="shortcutFilename">
         /// The full path to the shortcut file, i.e. C:\Users\__YOUR_USERNAME__\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\notepad++.lnk
         /// </param>
-        public string GetTargetFilenameByShortcutFilename(string shortcutFilename)
+        public static string GetTargetFilenameByShortcutFilename(string shortcutFilename)
         {
             string pathOnly = Path.GetDirectoryName(shortcutFilename);
             string filenameOnly = Path.GetFileName(shortcutFilename);

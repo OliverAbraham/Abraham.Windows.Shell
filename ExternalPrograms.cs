@@ -52,35 +52,21 @@ namespace Abraham.Windows.Shell
         /// </summary>
         public static void OpenFileInStandardBrowser(string filename)
         {
-            var extension = Path.GetExtension(filename);
-            string program = FindAssociatedProgramFor(extension);
-            if (program == null)
-                return;
-
-            Process.Start(program, " \"" + filename + "\"");
-        }
-
-        /// <summary>
-        /// Opens a file with the associated editor
-        /// </summary>
-        public static void OpenFileInAssociatedEditor(string filename)
-        {
+            var fullFilename = Path.GetFullPath(filename);
             var extension = Path.GetExtension(filename);
             string program = FindAssociatedProgramFor(extension);
             if (program == null)
                 return;
 
             bool bracketsAreAlreadyThere = (program.Contains("\"%1\"") || program.Contains("\" %1\""));
-            string filenameInBrackets = bracketsAreAlreadyThere 
-                ? filename
-                : $"\"{filename}\"";
+            string filenameInBrackets;
+            if (bracketsAreAlreadyThere)
+                filenameInBrackets = fullFilename;
+            else
+                filenameInBrackets = $"\"{fullFilename}\"";
 
-            var parts = program.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            if (parts.GetLength(0) > 0)
-			{
-                var exeFile = parts[0];
-                Process.Start(exeFile, filenameInBrackets);
-			}
+            var exeFile = program.Replace("\"%1\"", "").Replace("%1", "").TrimEnd();
+            Process.Start(exeFile, filenameInBrackets);
         }
 
         /// <summary>
@@ -103,7 +89,8 @@ namespace Abraham.Windows.Shell
 		#region ------------- Implementation ------------------------------------------------------
 		private static void StartBatchfile_internal(string fullPathToBatchfile)
 		{
-			string workingDirectory = Path.GetPathRoot(fullPathToBatchfile);
+			string fullPath = Path.GetFullPath(fullPathToBatchfile);
+			string workingDirectory = Path.GetDirectoryName(fullPath);
 			Directory.SetCurrentDirectory(workingDirectory);
 
             var extension = Path.GetExtension(fullPathToBatchfile);

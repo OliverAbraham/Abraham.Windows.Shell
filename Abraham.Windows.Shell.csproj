@@ -10,6 +10,7 @@
 
 	<PropertyGroup>
 		<PackageLicenseFile>license-gpl-3.0.md</PackageLicenseFile>
+		<Summary>Create a link to windows autostart folder, open file with associated editor, and more</Summary>
 		<Description>This library provides methods to create a link to your program 
 in the Windows Windows Autostart folder.
 And to open file with the associated program, associated browser 

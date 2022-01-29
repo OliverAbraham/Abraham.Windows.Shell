@@ -6,10 +6,8 @@ mail@oliver-abraham.de
 
 ## Abstract
 
-This library provides methods to create a linkto your program 
-in the Windows Windows Autostart folder.
-Andto open file with the associated program, associated browser 
-or to start a batch file.
+This library provides methods to create a link to your program in Windows Autostart folder.
+And to open file with the associated program, associated browser or to start a batch file.
 
 
 ## License

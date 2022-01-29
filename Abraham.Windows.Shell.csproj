@@ -8,7 +8,31 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
-  <ItemGroup>
+	<PropertyGroup>
+		<PackageLicenseFile>license-gpl-3.0.md</PackageLicenseFile>
+		<Description>This library provides methods to create a link to your program 
+in the Windows Windows Autostart folder.
+And to open file with the associated program, associated browser 
+or to start a batch file.
+</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/OliverAbraham/Abraham.Windows.Shell</PackageProjectUrl>
+		<Company>Oliver Abraham</Company>
+		<RepositoryUrl>https://github.com/OliverAbraham/Abraham.Windows.Shell</RepositoryUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="license-gpl-3.0.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
     <COMReference Include="IWshRuntimeLibrary">
       <WrapperTool>tlbimp</WrapperTool>
       <VersionMinor>0</VersionMinor>

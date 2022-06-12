@@ -1,0 +1,17 @@
+﻿<Window x:Class="Abraham.Windows.Shell.Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Abraham.Windows.Shell.Demo"
+        mc:Ignorable="d"
+        Title="Abraham.Windows.Shell.Demo" Height="371" Width="370" Background="WhiteSmoke">
+    <Grid>
+        <Button Content="Add shortcut to autostart folder"      HorizontalAlignment="Left" Margin="60,62,0,0"  VerticalAlignment="Top" Width="237" Click="AddShortcut"/>
+        <Button Content="Remove shortcut from autostart folder" HorizontalAlignment="Left" Margin="60,96,0,0"  VerticalAlignment="Top" Width="237" Click="RemoveShortcut"/>
+        <Button Content="StartBatchfile"                        HorizontalAlignment="Left" Margin="60,177,0,0" VerticalAlignment="Top" Width="237" Click="StartBatchfile"/>
+        <Button Content="OpenDirectoryInExplorer"               HorizontalAlignment="Left" Margin="60,202,0,0" VerticalAlignment="Top" Width="237" Click="OpenDirectoryInExplorer"/>
+        <Button Content="OpenFileInStandardBrowser"             HorizontalAlignment="Left" Margin="60,227,0,0" VerticalAlignment="Top" Width="237" Click="OpenFileInStandardBrowser"/>
+        <Button Content="FindAssociatedProgramFor"              HorizontalAlignment="Left" Margin="60,252,0,0" VerticalAlignment="Top" Width="237" Click="FindAssociatedProgramFor"/>
+    </Grid>
+</Window>

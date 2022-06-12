@@ -9,7 +9,7 @@
   </PropertyGroup>
 
 	<PropertyGroup>
-		<PackageLicenseFile>license-gpl-3.0.md</PackageLicenseFile>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 		<Summary>Create a link to windows autostart folder, open file with associated editor, and more</Summary>
 		<Description>This library provides methods to create a link to your program 
 in the Windows Windows Autostart folder.
@@ -20,18 +20,11 @@ or to start a batch file.
 		<PackageProjectUrl>https://github.com/OliverAbraham/Abraham.Windows.Shell</PackageProjectUrl>
 		<Company>Oliver Abraham</Company>
 		<RepositoryUrl>https://github.com/OliverAbraham/Abraham.Windows.Shell</RepositoryUrl>
+		<Version>1.0.1</Version>
+		<Copyright>Oliver Abraham</Copyright>
+		<PackageIcon>Ciridata.png</PackageIcon>
+		<PackageReleaseNotes>Change licence to Apache Licence and added an icon</PackageReleaseNotes>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<None Include="license-gpl-3.0.md" Pack="true" PackagePath="" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="README.md">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
-	</ItemGroup>
 
 	<ItemGroup>
     <COMReference Include="IWshRuntimeLibrary">
@@ -53,5 +46,28 @@ or to start a batch file.
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\Ciridata.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\LICENSE.txt">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Ciridata.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Update="LICENSE.txt" Pack="true" />
+	</ItemGroup>
 
 </Project>

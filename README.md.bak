@@ -1,6 +1,6 @@
 # Abraham.Windows.Shell
 
-![](https://img.shields.io/github/oliverabraham/Abraham.Windows.Shell/total) ![](https://img.shields.io/github/license/oliverabraham/Abraham.Windows.Shell) ![](https://img.shields.io/github/languages/count/oliverabraham/Abraham.Windows.Shell) ![GitHub Repo stars](https://img.shields.io/github/stars/oliverabraham/Abraham.Windows.Shell?label=repo%20stars) ![GitHub Repo stars](https://img.shields.io/github/stars/oliverabraham?label=user%20stars)
+![](https://img.shields.io/github/downloads/oliverabraham/AllOnOnePage/total) ![](https://img.shields.io/github/license/oliverabraham/AllOnOnePage) ![](https://img.shields.io/github/languages/count/oliverabraham/AllOnOnePage) ![GitHub Repo stars](https://img.shields.io/github/stars/oliverabraham/AllOnOnePage?label=repo%20stars) ![GitHub Repo stars](https://img.shields.io/github/stars/oliverabraham?label=user%20stars)
 
 
 ## OVERVIEW
@@ -111,17 +111,3 @@ ExternalPrograms.OpenFileInStandardBrowser("MyDocument.html");
 ```C#
 var program = ExternalPrograms.FindAssociatedProgramFor(".html");
 ```
-
-
-
-## SCREENSHOTS
-
-![](Screenshots/screenshot1.jpg)
-
-
-# MAKE A DONATION !
-
-If you find this application useful, buy me a coffee!
-I would appreciate a small donation on https://www.buymeacoffee.com/oliverabraham
-
-<a href="https://www.buymeacoffee.com/app/oliverabraham" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>

@@ -20,10 +20,13 @@ or to start a batch file.
 		<PackageProjectUrl>https://github.com/OliverAbraham/Abraham.Windows.Shell</PackageProjectUrl>
 		<Company>Oliver Abraham</Company>
 		<RepositoryUrl>https://github.com/OliverAbraham/Abraham.Windows.Shell</RepositoryUrl>
-		<Version>1.0.1</Version>
+		<IncludeSymbols>True</IncludeSymbols>
+		<!-- Include symbol files (*.pdb) in the built .nupkg -->
+		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
 		<Copyright>Oliver Abraham</Copyright>
 		<PackageIcon>Ciridata.png</PackageIcon>
-		<PackageReleaseNotes>Change licence to Apache Licence and added an icon</PackageReleaseNotes>
+		<PackageReleaseNotes>Added debug symbols</PackageReleaseNotes>
+		<Version>1.0.2</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
